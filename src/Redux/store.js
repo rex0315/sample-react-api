@@ -1,10 +1,10 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
-import { store } from "@reduxjs/toolkit";
 
-const initializeState = initialState({ value: "" } )
+
+const initialState = ({ value: {userName: ""} } )
 const slice = createSlice({
-    name: "userName",
-    initializeState,
+    name: "user",
+    initialState,
     reducers: {
         getUserName(state, action) {
             state.value = action.payload;
@@ -12,8 +12,10 @@ const slice = createSlice({
     }
 
 });
-export const { getUserName } = slice.action;
+export const { getUserName } = slice.actions;
 export const store = configureStore({
-    user: {userName: slice.reducers}
+    reducer: {
+     user: slice.reducer,
+ },
 })  
 

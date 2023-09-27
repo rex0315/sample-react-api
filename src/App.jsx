@@ -4,14 +4,15 @@ import NavBar from "./Components/NavBar";
 import { Home } from "./Pages/Home";
 import { About } from "./Pages/About";
 import { Contact } from "./Pages/Contact";
-import { Provider, store } from "react-redux";
+import { Provider } from "react-redux";
+import { store } from "./Redux/store";
 
 function App() {
   return (
     <div>
       <Provider store={store}>
         <Router>
-          <NavBar />
+          {/* <NavBar /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/About" element={<About />} />

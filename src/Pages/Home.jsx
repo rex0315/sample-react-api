@@ -3,16 +3,19 @@ import { getUserName } from "../Redux/store";
 import { useDispatch } from "react-redux";
 
 export const Home = () => {
-  const [userName, setUserName] = useState("");
+  const [uname, setUName] = useState("");
   const dispatch = useDispatch();
   return (
     <div>
       <input
         onChange={(e) => {
-          setUserName(e.target.value);
+          setUName(e.target.value);
         }}
       />
-      <button> Get Name: {() => dispatch(getUserName)}</button>
+      <button onClick={() => dispatch(getUserName({ userName: uname }))}>
+        Get Name:
+      </button>
+      <p>asdas</p>
     </div>
   );
 };
