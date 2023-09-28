@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Button, Text } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import axios, { Axios } from "axios";
@@ -24,3 +25,5 @@ export const Home = () => {
 };
 
 export default Home;
+=======
+>>>>>>> origin/main

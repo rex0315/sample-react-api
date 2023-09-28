@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar";
@@ -39,3 +40,5 @@ function App() {
 }
 
 export default App;
+=======
+>>>>>>> origin/main
