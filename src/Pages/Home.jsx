@@ -1,22 +1,25 @@
-import React, { useState } from "react";
-import { getUserName } from "../Redux/store";
-import { useDispatch } from "react-redux";
+import { Button, Text } from "@chakra-ui/react";
+import { useQuery } from "@tanstack/react-query";
+import axios, { Axios } from "axios";
 
 export const Home = () => {
-  const [uname, setUName] = useState("");
-  const dispatch = useDispatch();
+  const getCatfacts = () => {
+    return axios.get("https://catfact.ninja/fact").then((res) => res.data);
+  };
+
+  const { data, isLoading, isError, refetch } = useQuery(["cat"], getCatfacts);
+
+  if (isLoading) return <p>Loading...</p>;
+
+  if (isError) return <p>"error..." </p>;
+
   return (
-    <div>
-      <input
-        onChange={(e) => {
-          setUName(e.target.value);
-        }}
-      />
-      <button onClick={() => dispatch(getUserName({ userName: uname }))}>
-        Get Name:
-      </button>
-      <p>asdas</p>
-    </div>
+    <h1>
+      <Text fontSize={"lg"}>{data?.fact}</Text>
+      <Button colorScheme="blue" onClick={refetch}>
+        refetch data
+      </Button>
+    </h1>
   );
 };
 
