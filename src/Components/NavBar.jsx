@@ -6,7 +6,7 @@ import { Box, Container, Flex, Spacer } from "@chakra-ui/react";
 
 export const NavBar = () => {
   return (
-    <Container>
+    <Container w="100">
       <Box display="flex" bg="blue.300" alignItems="baseline" w="100%">
         <h1>NavBar</h1>
         <Spacer />
