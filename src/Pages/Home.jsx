@@ -1,7 +1,15 @@
-import { Button, Heading, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  HStack,
+  Heading,
+  Text,
+} from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import axios, { Axios } from "axios";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 
 export const Home = () => {
@@ -15,16 +23,7 @@ export const Home = () => {
 
   // if (isError) return <p>"error..." </p>;
 
-  return (
-    <div>
-      <h1>
-        {/* <Text fontSize={"lg"}>{data?.fact}</Text>
-      <Button colorScheme="blue" onClick={refetch}>
-        refetch data
-      </Button> */}
-      </h1>
-    </div>
-  );
+  return;
 };
 
 export default Home;
