@@ -1,48 +1,46 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Center, HStack, Heading, VStack } from "@chakra-ui/react";
-
-import "./NavBar.css";
+import {
+  AbsoluteCenter,
+  Button,
+  ButtonGroup,
+  Center,
+  HStack,
+  Heading,
+  VStack,
+} from "@chakra-ui/react";
 import { Box, Container, Flex, Spacer, Grid } from "@chakra-ui/react";
 
 export const NavBar = () => {
   return (
-    <Container minWidth="-webkit-max-content" bg="blue.400">
-      <Flex align="center" justify="space-between">
+    <Flex alignItems="center" gap="3" p={"10px"}>
+      <Heading as="h1">NavBar</Heading>
+      <Spacer />
+
+      <HStack spacing="20px">
         <Box>
-          <Heading>NavBar</Heading>
+          <Link to="/">Home</Link>
         </Box>
+        <Box>
+          <Link to="/Features">Features</Link>
+        </Box>
+        <Box>
+          <Link to="/How">How it works</Link>
+        </Box>
+        <Box>
+          <Link to="/Business">For business</Link>
+        </Box>
+      </HStack>
 
-        <HStack gap="8" justify="space-evenly">
-          <Box>
-            <Link to={"/"}>Home</Link>
-          </Box>
-          <Box>
-            <Link to={"/Features"}>Features</Link>
-          </Box>
-          <Box w="100%">
-            <Link to={"/How"}>How it Works</Link>
-          </Box>
-          <Box>
-            <Link to={"/Business"}>Business</Link>
-          </Box>
-        </HStack>
-
-        <HStack>
-          <Button>
-            <Link to={"/Login"}>Login</Link>
-          </Button>
-          <Button>
-            <Link to={"/SignUp"}>Sign Up</Link>
-          </Button>
-        </HStack>
-      </Flex>
-      <Box display="flex" alignItems="center" justifyContent="space-between">
-        Box with Flex props
-      </Box>
-      // shorthand using the `Flex` component
-      <Flex justify="center">Flex Container</Flex>
-    </Container>
+      <Spacer />
+      <ButtonGroup>
+        <Button colorScheme="white" color={"blackAlpha.900"}>
+          <Link to="/Login">Login</Link>
+        </Button>
+        <Button colorScheme="purple">
+          <Link to="/SignUp">Signup</Link>
+        </Button>
+      </ButtonGroup>
+    </Flex>
   );
 };
 
