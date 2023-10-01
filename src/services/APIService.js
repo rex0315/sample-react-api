@@ -4,7 +4,7 @@ import axios from 'axios'
 
 export const APIService = async () => {
 
-    return await axios.get("https://catfact.ninja/fact").then((res) => res.data);
+    return await axios.get("https://jsonplaceholder.typicode.com/photos").then((res) => res.data);
   };
 
 export default APIService

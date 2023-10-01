@@ -31,7 +31,7 @@ function App() {
     <>
       {/* <QueryClientProvider client={client}> */}
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
         <AppRoutes />
       </Router>
       {/* </QueryClientProvider> */}

@@ -12,14 +12,14 @@ const AppRoutes = () => {
   return (
     <div>
       <Routes>
-        {/* <Route element={<RootLayout />}> */}
-        <Route path="/" element={<Home />} />
-        <Route path="/Features" element={<Features />} />
-        <Route path="/How" element={<How />} />
-        <Route path="/Business" element={<Business />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/SignUp" element={<SignUp />} />
-        {/* </Route> */}
+        <Route path="/" element={<RootLayout />}>
+          <Route index element={<Home />} />
+          <Route path="/Features" element={<Features />} />
+          <Route path="/How" element={<How />} />
+          <Route path="/Business" element={<Business />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/SignUp" element={<SignUp />} />
+        </Route>
       </Routes>
     </div>
   );
