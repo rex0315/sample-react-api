@@ -26,7 +26,7 @@ export const RootLayout = () => {
         templateAreas={`"header header"
                   "nav main"
                   "nav footer"`}
-        gridTemplateRows={"50 1fr 30px"}
+        gridTemplateRows={"100 1fr"}
         gridTemplateColumns={"250px 1fr"}
         h="200px"
         gap="1"

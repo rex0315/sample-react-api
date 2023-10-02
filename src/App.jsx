@@ -20,11 +20,11 @@ import NavBar from "./Components/NavBar";
 
 function App() {
   const client = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-      },
-    },
+    // defaultOptions: {
+    //   queries: {
+    //     refetchOnWindowFocus: false,
+    //   },
+    // },
   });
 
   return (
