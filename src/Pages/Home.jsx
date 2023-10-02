@@ -28,16 +28,11 @@ import { CreditCardOutlined } from "@mui/icons-material";
 import CardLayout from "../Components/CardLayout";
 
 export const Home = () => {
-  const { data, isLoading, isError, refetch } = useQuery(["cat"], APIService());
-
-  if (isLoading) return <p>Loading...</p>;
-
-  if (isError) return <p>"error..." </p>;
-
+  const x = "hello";
   return (
     <>
-      {isLoading && "Loading"}
-      <CardLayout />
+      {/* {isLoading && "Loading"} */}
+      <CardLayout value={x} />
     </>
   );
 };

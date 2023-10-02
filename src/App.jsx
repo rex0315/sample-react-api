@@ -19,22 +19,22 @@ import AppRoutes from "./AppRoutes";
 import NavBar from "./Components/NavBar";
 
 function App() {
-  // const client = new QueryClient({
-  //   defaultOptions: {
-  //     queries: {
-  //       refetchOnWindowFocus: false,
-  //     },
-  //   },
-  // });
+  const client = new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
+  });
 
   return (
     <>
-      {/* <QueryClientProvider client={client}> */}
-      <Router>
-        {/* <NavBar /> */}
-        <AppRoutes />
-      </Router>
-      {/* </QueryClientProvider> */}
+      <QueryClientProvider client={client}>
+        <Router>
+          {/* <NavBar /> */}
+          <AppRoutes />
+        </Router>
+      </QueryClientProvider>
     </>
   );
 }
