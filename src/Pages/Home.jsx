@@ -1,38 +1,17 @@
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-  CardFooter,
-  Center,
-  CheckboxIcon,
-  Container,
-  Divider,
-  Flex,
-  Grid,
-  HStack,
-  Heading,
-  IconButton,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Container, Flex } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import axios, { Axios } from "axios";
-import { Link, Outlet } from "react-router-dom";
-import NavBar from "../Components/NavBar";
-import APIService from "../services/APIService";
-import { blueGrey } from "@mui/material/colors";
-import { CreditCardOutlined } from "@mui/icons-material";
+
 import CardLayout from "../Components/CardLayout";
 import { useState } from "react";
+import Search from "../Components/Search";
+import Loading from "../Components/Loading";
 
 export const Home = () => {
   const [album, setAlbum] = useState([]);
   const fetchAlbum = async () => {
     const { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/photos/?_limit=4"
+      "https://jsonplaceholder.typicode.com/photos/?_limit=5"
     );
 
     setAlbum(data);
@@ -40,19 +19,31 @@ export const Home = () => {
     return data;
   };
 
-  const { data, isLoading, isError, refetch } = useQuery(["user"], fetchAlbum);
-  console.log(data);
+  const { data, isLoading, isError, isSuccess, refetch } = useQuery(
+    ["user"],
+    fetchAlbum
+  );
+
+  if (isLoading) {
+    return (
+      <Container>
+        <Loading />
+      </Container>
+    );
+  }
 
   return (
     <>
-      <Flex>
-        {album.map((album) => (
-          <div>
-            <CardLayout key={album.id} album={album} />
-          </div>
-        ))}
-        <CardLayout />
-      </Flex>
+      <div>
+        <Search />
+        <Flex>
+          {album.map((album) => (
+            <Container paddingY={50}>
+              <CardLayout key={album.id} album={album} />
+            </Container>
+          ))}
+        </Flex>
+      </div>
     </>
   );
 };

@@ -76,7 +76,6 @@ export const RootLayout = () => {
           <NavBar />
         </GridItem>
         <GridItem pl="2" area={"main"}>
-          <Search />
           <Outlet />
         </GridItem>
       </Grid>

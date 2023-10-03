@@ -1,19 +1,6 @@
-import { Button, ButtonGroup } from "@chakra-ui/button";
 import { Card, CardBody, CardFooter } from "@chakra-ui/card";
 import { Image } from "@chakra-ui/image";
-import {
-  Divider,
-  Heading,
-  Stack,
-  HStack,
-  Text,
-  Flex,
-  SimpleGrid,
-} from "@chakra-ui/layout";
-import { useQuery } from "@tanstack/react-query";
-import React, { useEffect, useState } from "react";
-import APIService from "../services/APIService";
-import axios from "axios";
+import { Divider, Heading, Stack, HStack, Text } from "@chakra-ui/layout";
 
 const CardLayout = ({ album }) => {
   return (

@@ -17,14 +17,15 @@ import { Login } from "./Pages/Login";
 import { SignUp } from "./Pages/SignUp";
 import AppRoutes from "./AppRoutes";
 import NavBar from "./Components/NavBar";
+import { Switch } from "@chakra-ui/react";
 
 function App() {
   const client = new QueryClient({
-    // defaultOptions: {
-    //   queries: {
-    //     refetchOnWindowFocus: false,
-    //   },
-    // },
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+      },
+    },
   });
 
   return (
