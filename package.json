@@ -19,6 +19,8 @@
     "@reduxjs/toolkit": "^1.9.6",
     "@tanstack/react-query": "^4.35.3",
     "axios": "^1.5.1",
+    "firebase": "^10.4.0",
+    "firebaseui": "^6.1.0",
     "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
