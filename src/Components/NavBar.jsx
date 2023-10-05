@@ -34,6 +34,9 @@ export const NavBar = () => {
       <Spacer />
       <ButtonGroup>
         <Button colorScheme="white" color={"blackAlpha.900"}>
+          <Link to="/Sample">Sample</Link>
+        </Button>
+        <Button colorScheme="white" color={"blackAlpha.900"}>
           <Link to="/Login">Login</Link>
         </Button>
         <Button colorScheme="purple">

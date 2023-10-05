@@ -6,6 +6,7 @@ import Business from "./Pages/Business";
 import How from "./Pages/How";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/SignUp";
+import Sample from "./Pages/Sample";
 import { RootLayout } from "./Layout/RootLayout";
 
 const AppRoutes = () => {
@@ -19,6 +20,7 @@ const AppRoutes = () => {
           <Route path="/Business" element={<Business />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/Sample" element={<Sample />} />
         </Route>
       </Routes>
     </div>

@@ -65,7 +65,9 @@ export const Login = () => {
           </ButtonGroup>
         </VStack>
       </GridItem>
+
     </Grid>
+    
   );
 };
 
