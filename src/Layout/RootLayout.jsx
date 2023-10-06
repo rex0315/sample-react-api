@@ -26,12 +26,12 @@ export const RootLayout = () => {
         templateAreas={`"header header"
                   "nav main"
                   "nav footer"`}
-        gridTemplateRows={"100 1fr"}
-        gridTemplateColumns={"250px 1fr"}
-        h="200px"
+        gridTemplateRows={"100px 1fr"}
+        gridTemplateColumns={"0 1fr"}
+        // h="200px"
         gap="1"
       >
-        <GridItem area={"nav"}>
+        {/* <GridItem area={"nav"}>
           <VStack
             bg={"teal"}
             boxSize="100vh"
@@ -70,7 +70,7 @@ export const RootLayout = () => {
               </Flex>
             </Grid>
           </VStack>
-        </GridItem>
+        </GridItem> */}
 
         <GridItem area={"header"}>
           <NavBar />

@@ -1,4 +1,4 @@
-import { Container, Flex } from "@chakra-ui/react";
+import { Container, Flex, Skeleton } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import axios, { Axios } from "axios";
 
@@ -19,18 +19,10 @@ export const Home = () => {
     return data;
   };
 
-  const { data, isLoading, isError, isSuccess, refetch } = useQuery(
+  const { data, isFetching, isError, isSuccess, refetch } = useQuery(
     ["user"],
     fetchAlbum
   );
-
-  if (isLoading) {
-    return (
-      <Container>
-        <Loading />
-      </Container>
-    );
-  }
 
   return (
     <>
@@ -39,7 +31,11 @@ export const Home = () => {
         <Flex>
           {album.map((album) => (
             <Container paddingY={50}>
-              <CardLayout key={album.id} album={album} />
+              <CardLayout
+                key={album.id}
+                album={album}
+                isFetching={isFetching}
+              />
             </Container>
           ))}
         </Flex>

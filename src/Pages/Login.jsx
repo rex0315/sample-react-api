@@ -19,7 +19,7 @@ import React from "react";
 
 export const Login = () => {
   return (
-    <Grid templateColumns="repeat(2, 1fr)" display="flex">
+    <Grid templateColumns="repeat(2, 1fr)">
       <GridItem w="100%" h="100vh">
         <Image
           objectFit="cover"
@@ -65,9 +65,7 @@ export const Login = () => {
           </ButtonGroup>
         </VStack>
       </GridItem>
-
     </Grid>
-    
   );
 };
 
