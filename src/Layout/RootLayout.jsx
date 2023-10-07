@@ -72,9 +72,9 @@ export const RootLayout = () => {
           </VStack>
         </GridItem> */}
 
-        <GridItem area={"header"}>
+        {/* <GridItem area={"header"}>
           <NavBar />
-        </GridItem>
+        </GridItem> */}
         <GridItem pl="2" area={"main"}>
           <Outlet />
         </GridItem>

@@ -6,6 +6,7 @@ import CardLayout from "../Components/CardLayout";
 import { useState } from "react";
 import Search from "../Components/Search";
 import Loading from "../Components/Loading";
+import Login from "../Pages/Login";
 
 export const Home = () => {
   const [album, setAlbum] = useState([]);
@@ -27,7 +28,8 @@ export const Home = () => {
   return (
     <>
       <div>
-        <Search />
+        <Login />
+        {/* <Search />
         <Flex>
           {album.map((album) => (
             <Container paddingY={50}>
@@ -38,7 +40,7 @@ export const Home = () => {
               />
             </Container>
           ))}
-        </Flex>
+        </Flex> */}
       </div>
     </>
   );
