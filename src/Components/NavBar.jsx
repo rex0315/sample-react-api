@@ -51,15 +51,6 @@ export const NavBar = () => {
         <Box>
           <Link to="/">Home</Link>
         </Box>
-        <Box>
-          <Link to="/Features">Features</Link>
-        </Box>
-        <Box>
-          <Link to="/How">How it works</Link>
-        </Box>
-        <Box>
-          <Link to="/Business">For business</Link>
-        </Box>
       </HStack>
 
       <Spacer />

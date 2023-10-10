@@ -7,17 +7,9 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { Home } from "./Pages/Home";
-import { Features } from "./Pages/Features";
-import { How } from "./Pages/How";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { RootLayout } from "./Layout/RootLayout";
-import { Business } from "./Pages/Business";
-import { Login } from "./Pages/Login";
-import { SignUp } from "./Pages/SignUp";
+
 import AppRoutes from "./AppRoutes";
-import NavBar from "./Components/NavBar";
-import { Switch } from "@chakra-ui/react";
 
 function App() {
   const client = new QueryClient({

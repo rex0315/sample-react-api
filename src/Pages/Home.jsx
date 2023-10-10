@@ -3,27 +3,13 @@ import { useQuery } from "@tanstack/react-query";
 import axios, { Axios } from "axios";
 
 import CardLayout from "../Components/CardLayout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Search from "../Components/Search";
 import Loading from "../Components/Loading";
 import Login from "../Pages/Login";
 
 export const Home = () => {
   const [album, setAlbum] = useState([]);
-  const fetchAlbum = async () => {
-    const { data } = await axios.get(
-      "https://jsonplaceholder.typicode.com/photos/?_limit=5"
-    );
-
-    setAlbum(data);
-    console.log(data);
-    return data;
-  };
-
-  const { data, isFetching, isError, isSuccess, refetch } = useQuery(
-    ["user"],
-    fetchAlbum
-  );
 
   return (
     <>
