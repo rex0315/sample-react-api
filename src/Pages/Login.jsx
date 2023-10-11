@@ -10,8 +10,16 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Stack,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 import {
   AttachEmailOutlined,
@@ -27,6 +35,8 @@ import React from "react";
 import "../Styles/Login.css";
 
 export const Login = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <div>
       <Container
@@ -35,7 +45,7 @@ export const Login = () => {
         alignItems="center"
       >
         <Stack alignItems={"center"}>
-          <Text fontSize={"3xl"} as={"b"} gap={10}>
+          <Text fontSize={"3xl"} as={"b"} gap={10} mt={5}>
             Login to your Account
           </Text>
 
@@ -47,7 +57,7 @@ export const Login = () => {
           <FormControl isRequired>
             <Stack spacing={3} py={5}>
               <Box>
-                <Text fontSize="small" color={"gray.500"} my={2}>
+                <Text fontSize="small" color={"gray.500"}>
                   Email
                 </Text>
                 <InputGroup size={"md"}>
@@ -91,17 +101,51 @@ export const Login = () => {
               </Box>
               <Box position={"relative"} padding={5}>
                 <Divider />
-                <AbsoluteCenter px={4}>OR</AbsoluteCenter>
+                <AbsoluteCenter bg={"white"} px={4}>
+                  Or
+                </AbsoluteCenter>
               </Box>
               <HStack justifyContent={"center"} spacing={5} py={"-1"}>
                 <IconButton colorScheme="gray" icon={<Google />} />
                 <IconButton colorScheme="gray" icon={<Facebook />} />
                 <IconButton colorScheme="gray" icon={<Instagram />} />
-                <IconButton colorScheme="gray" icon={<AttachEmailTwoTone />} />
+                <IconButton
+                  onClick={onOpen}
+                  colorScheme="gray"
+                  icon={<AttachEmailTwoTone />}
+                />
               </HStack>
             </Stack>
           </FormControl>
         </Stack>
+
+        <Modal
+          // isCentered={true}
+          motionPreset="slideInTop"
+          size={"sm"}
+          isOpen={isOpen}
+          onClose={onClose}
+          justifyContent={"center"}
+        >
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader justifyContent={"center"}>Magic Link</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+              <Text my={1}>Email</Text>
+              <Input
+                name="emailInput"
+                id="emailInput"
+                type="text"
+                placeholder="name@email.com"
+              />
+            </ModalBody>
+
+            <ModalFooter justifyContent={"center"}>
+              <Button colorScheme="blue">Send Magic Link via email</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
       </Container>
     </div>
   );
