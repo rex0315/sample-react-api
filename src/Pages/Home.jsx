@@ -1,32 +1,54 @@
-import { Grid, GridItem } from "@chakra-ui/react";
+import {
+  Box,
+  Card,
+  CardBody,
+  CardHeader,
+  Grid,
+  GridItem,
+  Image,
+} from "@chakra-ui/react";
 import { NavBar } from "../Components/NavBar";
+import { useEffect, useState } from "react";
+import supabase from "../services/SupabaseClient";
 
 export const Home = () => {
+  const [book, setBook] = useState([]);
+  const [fetchError, setfetchError] = useState(null);
+
+  useEffect(() => {
+    const fetchBook = async () => {
+      const { data, error } = await supabase.from("books1").select();
+
+      if (error) {
+        setBook(null);
+        setfetchError(error);
+        console.log(error);
+      }
+      if (data) {
+        setBook(data);
+        console.log(data);
+      }
+    };
+    fetchBook();
+  }, []);
+
   return (
-    <Grid
-      templateAreas={`"header header"
-                  "nav main"
-                  "nav footer"`}
-      gridTemplateRows={"50px 1fr 30px"}
-      gridTemplateColumns={"150px 1fr"}
-      h="container.sm"
-      gap="1"
-      color="blackAlpha.700"
-      fontWeight="bold"
-    >
-      <GridItem pl="2" area={"header"}>
-        <NavBar />
-      </GridItem>
-      <GridItem pl="2" bg="pink.300" area={"nav"}>
-        Nav
-      </GridItem>
-      <GridItem pl="2" bg="green.300" area={"main"}>
-        Main
-      </GridItem>
-      <GridItem pl="2" bg="blue.300" area={"footer"}>
-        Footer
-      </GridItem>
-    </Grid>
+    <div>
+      {book.map((books) => (
+        <Card justifyContent={"center"} maxW={"sm"} key={books.id}>
+          <CardBody>
+            <Box boxSize={"sm"}>
+              <Image
+                boxSize={"-webkit-fit-content"}
+                objectFit={"cover"}
+                src={`${books.coverURL}`}
+              />
+            </Box>
+            <Heading></Heading>
+          </CardBody>
+        </Card>
+      ))}
+    </div>
   );
 };
 
