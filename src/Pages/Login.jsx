@@ -33,9 +33,15 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 import "../Styles/Login.css";
+import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate = useNavigate();
+
+  const handleSignIn = () => {
+    navigate("/home");
+  };
 
   return (
     <div>
@@ -90,7 +96,7 @@ export const Login = () => {
               </Box>
 
               <Box>
-                <Button colorScheme="blue" w="100%">
+                <Button colorScheme="blue" w="100%" onClick={handleSignIn}>
                   Sign in
                 </Button>
               </Box>

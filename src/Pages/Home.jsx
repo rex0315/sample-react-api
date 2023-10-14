@@ -3,13 +3,23 @@ import {
   Card,
   CardBody,
   CardHeader,
+  Container,
+  Flex,
   Grid,
   GridItem,
+  Heading,
   Image,
+  SimpleGrid,
+  Spacer,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
-import { NavBar } from "../Components/NavBar";
 import { useEffect, useState } from "react";
 import supabase from "../services/SupabaseClient";
+import NavBar from "../Components/NavBar";
+import Footer from "../Components/Footer";
+import AboutUs from "../Components/AboutUs";
+import Services from "../Components/Services";
 
 export const Home = () => {
   const [book, setBook] = useState([]);
@@ -33,22 +43,50 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
-      {book.map((books) => (
-        <Card justifyContent={"center"} maxW={"sm"} key={books.id}>
-          <CardBody>
-            <Box boxSize={"sm"}>
-              <Image
-                boxSize={"-webkit-fit-content"}
-                objectFit={"cover"}
-                src={`${books.coverURL}`}
-              />
-            </Box>
-            <Heading></Heading>
-          </CardBody>
-        </Card>
-      ))}
-    </div>
+    <Grid autoRows={"min-content"}>
+      <GridItem pb={10}>
+        <NavBar />
+      </GridItem>
+      <GridItem px={75}>
+        <SimpleGrid columns={[2, null, 3]} spacing={3}>
+          {book.map((books) => (
+            <Container>
+              <Card key={books.id}>
+                <CardBody>
+                  <Flex>
+                    <Box boxSize="-webkit-max-content">
+                      <Image
+                        boxSize={"200px"}
+                        objectFit={"contain"}
+                        src={`${books.coverURL}`}
+                      />
+                    </Box>
+
+                    <VStack>
+                      <Box px={5}>
+                        <Heading size={"sm"}>
+                          <span>{books.title}</span>
+                        </Heading>
+                        <Text fontSize={"sm"}>{books.category}</Text>
+                      </Box>
+                    </VStack>
+                  </Flex>
+                </CardBody>
+              </Card>
+            </Container>
+          ))}
+        </SimpleGrid>
+      </GridItem>
+      <GridItem px={75} py={75}>
+        <AboutUs />
+      </GridItem>
+      <GridItem px={75} py={75}>
+        <Services />
+      </GridItem>
+      <GridItem px={75}>
+        <Footer />
+      </GridItem>
+    </Grid>
   );
 };
 
